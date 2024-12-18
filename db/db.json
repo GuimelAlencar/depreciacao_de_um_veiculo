@@ -252,5 +252,23 @@
       "tipo_combustivel": "diesel",
       "valor": 220462.0
     }
+  ],
+  "modalidades de parcelamento":[
+    {
+      "nome_modalidade": "mensal",
+      "correspondência": 12
+    },
+    {
+      "nome_modalidade": "trimestral",
+      "correspondência": 4
+    },
+    {
+      "nome_modalidade": "semestral",
+      "correspondência": 2
+    },
+    {
+      "nome_modalidade": "anual",
+      "correspondência": 1
+    }
   ]
 }
