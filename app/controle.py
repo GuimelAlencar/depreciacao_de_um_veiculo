@@ -72,9 +72,9 @@ def get_dados_db(dado, tipo=None, marca=None, modelo=None, ano=None, consumo=Non
         case "tipos":
             return rotas.get_tipos()        
         case "marcas":
-            return rotas.get_modelos(tipo)
-        case "modelos":
-            return rotas.get_marcas(tipo, marca)
+            return rotas.get_marcas(tipo)
+        case "modelos":            
+            return rotas.get_modelos(tipo, marca)        
         case "anos":
             return rotas.get_anos(tipo, marca, modelo)
         case "consumos":
