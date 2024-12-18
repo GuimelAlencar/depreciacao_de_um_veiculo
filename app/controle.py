@@ -70,11 +70,11 @@ def get_dados_db(dado, tipo=None, marca=None, modelo=None, ano=None, consumo=Non
     import rotas
     match dado:
         case "tipos":
-            return rotas.get_tipos()
-        case "modelos":
-            return rotas.get_marcas(tipo)
+            return rotas.get_tipos()        
         case "marcas":
-            return rotas.get_modelos(tipo, marca)
+            return rotas.get_modelos(tipo)
+        case "modelos":
+            return rotas.get_marcas(tipo, marca)
         case "anos":
             return rotas.get_anos(tipo, marca, modelo)
         case "consumos":
