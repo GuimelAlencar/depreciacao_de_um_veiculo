@@ -11,6 +11,20 @@ biblioteca como StreamLit, Python kivy ou Plotly Dash
 # Eles serão os únicos meios de comunicação com o back do qual vocês terão que se preocupar.
 from controle import depreciacao, financiamento, get_dados_db
 
+# testes dados_db
+tipos_de_veiculos = get_dados_db("tipos")
+print(f"Todos os tipos de veículos cadastrados no db: {tipos_de_veiculos}")
+
+for tipo in tipos_de_veiculos:
+    marcas_de_um_tipo_de_veiculo = get_dados_db("marcas", tipo)
+    print(f"Todas as marcas de {tipo} cadastrados no db: {marcas_de_um_tipo_de_veiculo}")
+
+    for marca in marcas_de_um_tipo_de_veiculo:
+        modelos_de_uma_marca = get_dados_db("modelos", tipo, marca)
+        print(f"Todas os modelos de {tipo} da marca {marca} cadastrados no db: {modelos_de_uma_marca}")
+print("")
+
+# Testes financiamento
 dados_do_financiamento = financiamento(
     #Tipo
     "carro", 
@@ -33,6 +47,38 @@ dados_do_financiamento = financiamento(
     # Entrada
     12000, 
 )
+
 # Printing data
+print("Financiamento pela PRICE: ")
 for parcela, valor in dados_do_financiamento:
     print(f"{parcela}º parcela: R${valor}")
+print("")
+
+dados_do_financiamento = financiamento(
+    #Tipo
+    "carro", 
+    # Marca
+    "toyota",
+    # Modelo
+    "corolla",
+    # Ano de fabricação
+    "2020",
+    # Tipo de consumo
+    "gasolina",
+    # 5%
+    5,
+    # 12 parcelas
+    12,
+    # Modalidade de parcelamento: mensal
+    "mensal",
+    # Tabela aplicada no cálculo de financiamento
+    "SAC",
+    # Entrada
+    12000, 
+)
+
+# Printing data
+print("Financiamento pela SAC: ")
+for parcela, valor in dados_do_financiamento:
+    print(f"{parcela}º parcela: R${valor}")
+print("")
