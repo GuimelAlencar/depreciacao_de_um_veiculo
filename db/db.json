@@ -1,0 +1,256 @@
+{
+  "veiculos": [
+    {
+      "id": 1,
+      "tipo": "carro",
+      "marca": "toyota",
+      "modelo": "corolla",
+      "ano_de_fabricacao": "2020",
+      "tipo_combustivel": "gasolina",
+      "valor": 126950.0
+    },
+    {
+      "id": 2,
+      "tipo": "carro",
+      "marca": "toyota",
+      "modelo": "corolla",
+      "ano_de_fabricacao": "2024",
+      "tipo_combustivel": "gasolina",
+      "valor": 167144.0
+    },
+    {
+      "id": 3,
+      "tipo": "carro",
+      "marca": "toyota",
+      "modelo": "yaris",
+      "ano_de_fabricacao": "2023",
+      "tipo_combustivel": "gasolina",
+      "valor": 83692.0
+    },
+    {
+      "id": 4,
+      "tipo": "carro",
+      "marca": "toyota",
+      "modelo": "yaris",
+      "ano_de_fabricacao": "2024",
+      "tipo_combustivel": "gasolina",
+      "valor": 86921.0
+    },
+    {
+      "id": 5,
+      "tipo": "carro",
+      "marca": "volkswagen",
+      "modelo": "gol",
+      "ano_de_fabricacao": "2013",
+      "tipo_combustivel": "gasolina",
+      "valor": 27525.0
+    },
+    {
+      "id": 6,
+      "tipo": "carro",
+      "marca": "volkswagen",
+      "modelo": "gol",
+      "ano_de_fabricacao": "2014",
+      "tipo_combustivel": "gasolina",
+      "valor": 29488.0
+    },
+    {
+      "id": 7,
+      "tipo": "carro",
+      "marca": "volkswagen",
+      "modelo": "amarok",
+      "ano_de_fabricacao": "2011",
+      "tipo_combustivel": "diesel",
+      "valor": 66221.0
+    },
+    {
+      "id": 8,
+      "tipo": "carro",
+      "marca": "volkswagen",
+      "modelo": "amarok",
+      "ano_de_fabricacao": "2013",
+      "tipo_combustivel": "diesel",
+      "valor": 75785.0
+    },
+    {
+      "id": 9,
+      "tipo": "carro",
+      "marca": "chevrolet",
+      "modelo": "spin",
+      "ano_de_fabricacao": "2015",
+      "tipo_combustivel": "gasolina",
+      "valor": 52652.0
+    },
+    {
+      "id": 10,
+      "tipo": "carro",
+      "marca": "chevrolet",
+      "modelo": "spin",
+      "ano_de_fabricacao": "2020",
+      "tipo_combustivel": "gasolina",
+      "valor": 77537.0
+    },
+    {
+      "id": 11,
+      "tipo": "carro",
+      "marca": "chevrolet",
+      "modelo": "corsa",
+      "ano_de_fabricacao": "1994",
+      "tipo_combustivel": "gasolina",
+      "valor": 8552.0
+    },
+    {
+      "id": 12,
+      "tipo": "carro",
+      "marca": "chevrolet",
+      "modelo": "corsa",
+      "ano_de_fabricacao": "2000",
+      "tipo_combustivel": "gasolina",
+      "valor": 13191.0
+    },
+    {
+      "id": 13,
+      "tipo": "motocicleta",
+      "marca": "honda",
+      "modelo": "biz",
+      "ano_de_fabricacao": "2016",
+      "tipo_combustivel": "gasolina",
+      "valor": 9595.0
+    },
+    {
+      "id": 14,
+      "tipo": "motocicleta",
+      "marca": "honda",
+      "modelo": "biz",
+      "ano_de_fabricacao": "2024",
+      "tipo_combustivel": "gasolina",
+      "valor": 12985.0
+    },
+    {
+      "id": 15,
+      "tipo": "motocicleta",
+      "marca": "honda",
+      "modelo": "xre300",
+      "ano_de_fabricacao": "2017",
+      "tipo_combustivel": "gasolina",
+      "valor": 18435.0
+    },
+    {
+      "id": 16,
+      "tipo": "motocicleta",
+      "marca": "honda",
+      "modelo": "xre300",
+      "ano_de_fabricacao": "2023",
+      "tipo_combustivel": "gasolina",
+      "valor": 26563.0
+    },
+    {
+      "id": 17,
+      "tipo": "motocicleta",
+      "marca": "yamaha",
+      "modelo": "fazer250",
+      "ano_de_fabricacao": "2018",
+      "tipo_combustivel": "gasolina",
+      "valor": 15747.0
+    },
+    {
+      "id": 18,
+      "tipo": "motocicleta",
+      "marca": "yamaha",
+      "modelo": "fazer250",
+      "ano_de_fabricacao": "2024",
+      "tipo_combustivel": "gasolina",
+      "valor": 22064.0
+    },
+    {
+      "id": 19,
+      "tipo": "motocicleta",
+      "marca": "yamaha",
+      "modelo": "crosser150",
+      "ano_de_fabricacao": "2014",
+      "tipo_combustivel": "gasolina",
+      "valor": 10802.0
+    },
+    {
+      "id": 20,
+      "tipo": "motocicleta",
+      "marca": "yamaha",
+      "modelo": "crosser150",
+      "ano_de_fabricacao": "2017",
+      "tipo_combustivel": "gasolina",
+      "valor": 12737.0
+    },
+    {
+      "id": 21,
+      "tipo": "motocicleta",
+      "marca": "kawasaki",
+      "modelo": "ninja400",
+      "ano_de_fabricacao": "2019",
+      "tipo_combustivel": "gasolina",
+      "valor": 26450.0
+    },
+    {
+      "id": 22,
+      "tipo": "motocicleta",
+      "marca": "kawasaki",
+      "modelo": "ninja400",
+      "ano_de_fabricacao": "2024",
+      "tipo_combustivel": "gasolina",
+      "valor": 33192.0
+    },
+    {
+      "id": 23,
+      "tipo": "motocicleta",
+      "marca": "kawasaki",
+      "modelo": "z650",
+      "ano_de_fabricacao": "2018",
+      "tipo_combustivel": "gasolina",
+      "valor": 30024.0
+    },
+    {
+      "id": 24,
+      "tipo": "motocicleta",
+      "marca": "kawasaki",
+      "modelo": "z650",
+      "ano_de_fabricacao": "2024",
+      "tipo_combustivel": "gasolina",
+      "valor": 40779.0
+    },
+    {
+      "id": 25,
+      "tipo": "caminhão",
+      "marca": "mercedes-benz",
+      "modelo": "actros",
+      "ano_de_fabricacao": "2023",
+      "tipo_combustivel": "diesel",
+      "valor": 637214.0
+    },
+    {
+      "id": 26,
+      "tipo": "caminhão",
+      "marca": "mercedes-benz",
+      "modelo": "actros",
+      "ano_de_fabricacao": "2025",
+      "tipo_combustivel": "diesel",
+      "valor": 724130.0
+    },
+    {
+      "id": 27,
+      "tipo": "caminhão",
+      "marca": "volvo",
+      "modelo": "sh400",
+      "ano_de_fabricacao": "2007",
+      "tipo_combustivel": "diesel",
+      "valor": 154559.0
+    },
+    {
+      "id": 28,
+      "tipo": "caminhão",
+      "marca": "volvo",
+      "modelo": "sh400",
+      "ano_de_fabricacao": "2012",
+      "tipo_combustivel": "diesel",
+      "valor": 220462.0
+    }
+  ]
+}
