@@ -1,16 +1,13 @@
-from controller import get_valor_veiculo
-
 def calculo_depreciacao(
+        valor_veiculo,
         tipo_veiculo, 
         marca_veiculo, 
         modelo_veiculo, 
         ano_veiculo,
         consumo_veiculo,
     ):
-    
-    valor_veiculo = get_valor_veiculo(tipo_veiculo, marca_veiculo, modelo_veiculo, ano_veiculo, consumo_veiculo)
-    
-    
+    pass
+
 '''
 1 - Um carro perde cerca de 63% do seu valor original nos seus 5 primeiros anos de atividade.
     1.1 - cerca de 18.33% a.a

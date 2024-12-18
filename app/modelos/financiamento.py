@@ -60,6 +60,7 @@ def calculo_financiamento(
             # Se a taxa de juros for 0, só divide o valor financiado pelo numero de tabelas
             if taxa_de_juros_aa_d_por_parcela == 0:
                 valor_amortizacao = valor_financiado / numero_de_parcelas
+                # TODO: Deve retornar a variação em meses, não em parcelas
                 parcelas = [(parcela + 1, valor_amortizacao) for parcela in range(numero_de_parcelas)]
 
             else:
@@ -75,6 +76,7 @@ def calculo_financiamento(
                 for parcela in range(numero_de_parcelas):
                     juros = saldo_devedor * taxa_de_juros_aa_d_por_parcela
                     valor_parcela = valor_amortizacao + juros
+                    # TODO: Deve retornar a variação em meses, não em parcelas
                     parcelas.append((parcela + 1, round(valor_parcela, 2)))
                     saldo_devedor -= valor_amortizacao
             # Transforma a lista em uma tupla e a retorna
