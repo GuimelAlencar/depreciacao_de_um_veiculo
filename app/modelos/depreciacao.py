@@ -1,21 +1,49 @@
+from datetime import datetime
+import random
+
 def calculo_depreciacao(
         valor_veiculo,
-        tipo_veiculo, 
-        marca_veiculo, 
-        modelo_veiculo, 
-        ano_veiculo,
-        consumo_veiculo,
-    ):
-    pass
-
-'''
-1 - Um carro perde cerca de 63% do seu valor original nos seus 5 primeiros anos de atividade.
-    1.1 - cerca de 18.33% a.a
-    1.2 - cerca de 1.52% a.m
-2 - Os 3 primeiros anos são marcados por taxas que variam de 15% a 20% a.a
-    2.1 - cerca de 17.5% a.a
-    2.2 - cerca de 1.45% a.m
-3 - Os 2 anos seguintes se estabilizam entre 6% e 10% a.a
-    3.1 - cerca de 8% a.a
-    3.2 - cerca de 0.66% a.m
-'''
+        ano_veiculo
+        ):
+    
+    # Ano atual
+    ano_atual = datetime.now().year
+    idade_veiculo = ano_atual - int(ano_veiculo)
+    
+    # Lista para armazenar os resultados
+    resultados = []
+    valor_atual = valor_veiculo
+    mes_atual = 1
+    depreciacao_acumulada = 0
+    
+    while valor_atual > 0:
+        # Adiciona o par (mês, valor) à lista de resultados
+        resultados.append((mes_atual, round(valor_atual, 2)))
+        
+        # Calcula a depreciação mensal
+        if idade_veiculo < 3:
+            # Para os primeiros 3 anos: 18.33% ± 2% ao ano
+            taxa_anual = random.uniform(17.33, 21.33)
+            taxa_mensal = taxa_anual / 12
+        else:
+            # A partir do 4º ano: 8% ± 2% ao ano
+            taxa_anual = random.uniform(8, 12)
+            taxa_mensal = taxa_anual / 12
+        
+        # Adiciona a taxa mensal à depreciação acumulada
+        depreciacao_acumulada += taxa_mensal
+        
+        # Calcula o novo valor baseado na depreciação acumulada sobre o valor original
+        valor_atual = valor_veiculo * (1 - depreciacao_acumulada/100)
+        
+        # Se o valor ficar muito próximo de zero, consideramos zero
+        if valor_atual < 1:
+            valor_atual = 0
+            resultados.append((mes_atual + 1, 0))
+            break
+            
+        mes_atual += 1
+        if mes_atual % 12 == 1:
+            idade_veiculo += 1
+    
+    return tuple(resultados)
