@@ -22,14 +22,7 @@ def depreciacao(
         consumo_veiculo,
     )
     
-    dados_depreciacao = calculo_depreciacao(
-        valor_veiculo,
-        tipo_veiculo, 
-        marca_veiculo, 
-        modelo_veiculo, 
-        ano_veiculo,
-        consumo_veiculo,
-    )
+    dados_depreciacao = calculo_depreciacao(valor_veiculo, ano_veiculo)
     
     return dados_depreciacao 
 
@@ -81,6 +74,5 @@ def get_dados_db(dado, tipo=None, marca=None, modelo=None, ano=None, consumo=Non
             return rotas.get_consumos(tipo, marca, modelo, ano)
         case "valor":
             return rotas.get_valor_veiculo(tipo, marca, modelo, ano, consumo)
-    
     
     return dados_financiamento
