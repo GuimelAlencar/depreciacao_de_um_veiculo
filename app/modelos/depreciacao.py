@@ -20,16 +20,9 @@ def calculo_depreciacao(
         # Adiciona o par (mês, valor) à lista de resultados
         resultados.append((mes_atual, round(valor_atual, 2)))
         
-        # Calcula a depreciação mensal
-        if idade_veiculo < 3:
-            # Para os primeiros 3 anos: 18.33% ± 2% ao ano
-            taxa_anual = random.uniform(17.33, 21.33)
-            taxa_mensal = taxa_anual / 12
-        else:
-            # A partir do 4º ano: 8% ± 2% ao ano
-            taxa_anual = random.uniform(8, 12)
-            taxa_mensal = taxa_anual / 12
-        
+        taxa_anual = random.uniform(17.33, 21.33)
+        taxa_mensal = taxa_anual / 12
+            
         # Adiciona a taxa mensal à depreciação acumulada
         depreciacao_acumulada += taxa_mensal
         
