@@ -1,6 +1,3 @@
-'''Model responsavel pelo cálculo de um determinado financiamento.'''
-
-# Biblioteca para a leitura do db
 import json
 
 def calculo_financiamento(

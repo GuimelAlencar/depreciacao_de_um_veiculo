@@ -1,7 +1,3 @@
-'''
-# Controle
-Arquivo responsável por gerenciar o relacionamento e o fluxo de informações entre a visualização, o processamento de dados, e a API da FIPE.
-'''
 from modelos.depreciacao import calculo_depreciacao
 from modelos.financiamento import calculo_financiamento
 
