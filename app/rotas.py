@@ -57,9 +57,9 @@ def get_consumos(tipo, marca, modelo, ano):
             veiculo["marca"] == marca and 
             veiculo["modelo"] == modelo and 
             veiculo["ano_de_fabricacao"] == ano and 
-            veiculo["consumo"] not in consumos_vistos):
-            consumos_vistos.add(veiculo["consumo"])
-            lista_de_consumos.append(veiculo["consumo"])
+            veiculo["tipo_combustivel"] not in consumos_vistos):
+            consumos_vistos.add(veiculo["tipo_combustivel"])
+            lista_de_consumos.append(veiculo["tipo_combustivel"])
     return tuple(lista_de_consumos)
 
 def get_valor_veiculo(tipo, marca, modelo, ano, consumo):

@@ -1,122 +1,37 @@
-'''
-# Visualização
-Arquivo responsável por gerar a interação entre o usuário e o programa por meio de alguma 
-biblioteca como StreamLit, Python kivy ou Plotly Dash
-'''
-# depreciação - Cálculo da depreciação de um veículo de valor x
-# financiamento - Cálculo de um financiamento de um veículo de valor x
+import streamlit as st
+import plotly.graph_objects as go
 
-#3 get_tipos,marcas,modelos,consumos e anos são ferramentas que retornam todos os tipos, marcas, modelos, anos e consumos dos veículos do db veículos
-
-# Eles serão os únicos meios de comunicação com o back do qual vocês terão que se preocupar.
 from controle import depreciacao, financiamento, get_dados_db
+st.title("Simulação de Depreciação e Financiamento de Veículos")
 
-dados_depreciacao = depreciacao(
-    #Tipo
-    "carro", 
-    # Marca
-    "toyota",
-    # Modelo
-    "corolla",
-    # Ano de fabricação
-    "2020",
-    # Tipo de consumo
-    "gasolina"
-)
+col1,col2 = st.columns(2)
+with col1:
+    tipo = st.selectbox("Tipo", get_dados_db("tipos"))
+    marca = st.selectbox("Marca", get_dados_db("marcas", tipo) if tipo else [])
+    modelo = st.selectbox("Modelo", get_dados_db("modelos", tipo, marca) if marca else [])
+    ano = st.selectbox("Ano", get_dados_db("anos", tipo, marca, modelo) if modelo else [])
+    consumo = st.selectbox("Combustível", get_dados_db("consumos", tipo, marca, modelo, ano) if ano else [])
+with col2:
+    taxa_juros = st.number_input("Taxa de juros (%)", min_value=0.0, value=5.0)
+    numero_parcelas = st.number_input("Parcelas", min_value=1, value=12)
+    tipo_parcela = st.selectbox("Modalidade", ["mensal", "trimestral", "semestral", "anual"])
+    tipo_tabela = st.selectbox("Sistema", ["PRICE", "SAC"])
+    entrada = st.number_input("Entrada (R$)", min_value=0.0, value=12000.0)
+if st.button("Calcular"):
 
-# Printing data
-print("Depreciação de um toyota corolla 2020: ")
-for mes, valor in dados_depreciacao:
-    print(f"{mes}º mes: R${valor}")
-print("")
-
-dados_depreciacao = depreciacao(
-    #Tipo
-    "carro", 
-    # Marca
-    "toyota",
-    # Modelo
-    "corolla",
-    # Ano de fabricação
-    "2024",
-    # Tipo de consumo
-    "gasolina"
-)
-
-# Printing data
-print("Depreciação de um toyota corolla 2024: ")
-for mes, valor in dados_depreciacao:
-    print(f"{mes}º mes: R${valor}")
-print("")
-
-# Testes financiamento
-dados_do_financiamento = financiamento(
-    #Tipo
-    "carro", 
-    # Marca
-    "toyota",
-    # Modelo
-    "corolla",
-    # Ano de fabricação
-    "2020",
-    # Tipo de consumo
-    "gasolina",
-    # 5%
-    5,
-    # 12 parcelas
-    12,
-    # Modalidade de parcelamento: mensal
-    "mensal",
-    # Tabela aplicada no cálculo de financiamento
-    "PRICE",
-    # Entrada
-    12000, 
-)
-
-# Printing data
-print("Financiamento pela PRICE: ")
-for parcela, valor in dados_do_financiamento:
-    print(f"{parcela}º parcela: R${valor}")
-print("")
-
-dados_do_financiamento = financiamento(
-    #Tipo
-    "carro", 
-    # Marca
-    "toyota",
-    # Modelo
-    "corolla",
-    # Ano de fabricação
-    "2024",
-    # Tipo de consumo
-    "gasolina",
-    # 5%
-    5,
-    # 12 parcelas
-    12,
-    # Modalidade de parcelamento: mensal
-    "mensal",
-    # Tabela aplicada no cálculo de financiamento
-    "SAC",
-    # Entrada
-    12000, 
-)
-
-# Printing data
-print("Financiamento pela SAC: ")
-for parcela, valor in dados_do_financiamento:
-    print(f"{parcela}º parcela: R${valor}")
-print("")
-
-# testes dados_db
-tipos_de_veiculos = get_dados_db("tipos")
-print(f"Todos os tipos de veículos cadastrados no db: {tipos_de_veiculos}")
-
-for tipo in tipos_de_veiculos:
-    marcas_de_um_tipo_de_veiculo = get_dados_db("marcas", tipo)
-    print(f"Todas as marcas de {tipo} cadastrados no db: {marcas_de_um_tipo_de_veiculo}")
-
-    for marca in marcas_de_um_tipo_de_veiculo:
-        modelos_de_uma_marca = get_dados_db("modelos", tipo, marca)
-        print(f"Todas os modelos de {tipo} da marca {marca} cadastrados no db: {modelos_de_uma_marca}")
-print("")
+    dados_depreciacao = depreciacao(tipo, marca, modelo, ano, consumo)
+    dados_financiamento = financiamento(tipo, marca, modelo, ano, consumo, taxa_juros, numero_parcelas, tipo_parcela, tipo_tabela, entrada)
+    
+    meses_depreciacao, valores_depreciacao = zip(*dados_depreciacao)
+    meses_financiamento, valores_financiamento = zip(*dados_financiamento)
+    
+    fig = go.Figure()
+    fig.add_trace(go.Scatter(x=meses_depreciacao, y=valores_depreciacao, mode='lines', name='Depreciação'))
+    fig.add_trace(go.Scatter(x=meses_financiamento, y=valores_financiamento, mode='lines', name='Financiamento'))
+    
+    fig.update_layout(title='Depreciação e Financiamento do Veículo',
+                      xaxis_title='Meses',
+                      yaxis_title='Valores (R$)',
+                      legend_title='Linhas')
+    
+    st.plotly_chart(fig)
